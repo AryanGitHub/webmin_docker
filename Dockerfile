@@ -6,6 +6,7 @@ RUN add-apt-repository "deb http://download.webmin.com/download/repository sarge
 RUN apt upgrade -y && apt update -y
 RUN apt -y install webmin
 RUN sed -i 's/^listen=.*/listen=0.0.0.0/' /etc/webmin/miniserv.conf
+RUN sed -i 's/port=10000/port=80/' /etc/webmin/miniserv.conf
 RUN echo "root:newpassword" | chpasswd
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord", "-n"]
