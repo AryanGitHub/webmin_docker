@@ -11,4 +11,4 @@ RUN echo "root:newpassword" | chpasswd
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord", "-n"]
 #CMD ["service", "webmin", "start"]
-EXPOSE 10000/tcp
+EXPOSE 80/tcp
